@@ -26,7 +26,7 @@ class PseudoLabelModel(object):
             sample_index = np.append(pos_index, sample_neg_index)
             np.random.shuffle(sample_index)
             sample_X = X.loc[sample_index].values
-            sample_y = y.loc[sample_index].values
+            sample_y = pseudo_label.loc[sample_index].values
             submodel = BaseLGB()
             submodel.fit(sample_X, sample_y)
             self.models.append(submodel)
